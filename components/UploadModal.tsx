@@ -1,14 +1,14 @@
 'use client';
 
 import uniqid from 'uniqid';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/navigation';
+import { useSupabaseClient } from '@supabase/auth-helpers-react';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 
-import useUploadModal from '@/hooks/useUploadModal';
 import { useUser } from '@/hooks/useUser';
+import useUploadModal from '@/hooks/useUploadModal';
 
 import Modal from './Modal';
 import Input from './Input';
@@ -113,18 +113,24 @@ const UploadModal = () => {
       onChange={onChange}
     >
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-4">
-        <Input
-          id="title"
-          disabled={isLoading}
-          {...register('title', { required: true })}
-          placeholder="Title of Song"
-        />
-        <Input
-          id="author"
-          disabled={isLoading}
-          {...register('author', { required: true })}
-          placeholder="Author of Song"
-        />
+        <div>
+          <div className="pb-1">Song Title</div>
+          <Input
+            id="title"
+            disabled={isLoading}
+            {...register('title', { required: true })}
+            placeholder="Title of Song"
+          />
+        </div>
+        <div>
+          <div className="pb-1">Song Author</div>
+          <Input
+            id="author"
+            disabled={isLoading}
+            {...register('author', { required: true })}
+            placeholder="Author of Song"
+          />
+        </div>
         <div>
           <div className="pb-1">Select a Song File</div>
           <Input
@@ -145,8 +151,8 @@ const UploadModal = () => {
             {...register('image', { required: true })}
           />
         </div>
-        <Button className="my-4" disabled={isLoading} type="submit">
-          Upload Song
+        <Button className="my-3" disabled={isLoading} type="submit">
+          UPLOAD SONG
         </Button>
       </form>
     </Modal>
