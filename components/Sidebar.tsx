@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 import { HiHome } from 'react-icons/hi';
 import { BiSearch } from 'react-icons/bi';
+import { BiUserCircle } from 'react-icons/bi';
 import { twMerge } from 'tailwind-merge';
 
 import { Song } from '@/types';
@@ -35,6 +36,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
         label: 'Search',
         active: pathname === '/search',
         href: '/search',
+      },
+      {
+        icon: BiUserCircle,
+        label: 'Profile',
+        active: pathname === '/profile',
+        href: '/profile',
       },
     ],
     [pathname]
