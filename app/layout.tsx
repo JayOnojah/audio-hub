@@ -14,8 +14,8 @@ import Player from '@/components/Player';
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Spotify Clone',
-  description: 'Listen to cloned music!',
+  title: 'Audio Hub',
+  description: 'Listen to awesome music!',
 };
 
 export const revalidate = 0;
