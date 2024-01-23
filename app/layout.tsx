@@ -2,19 +2,20 @@ import './globals.css';
 
 import { Inter } from 'next/font/google';
 
+import type { Metadata } from 'next';
+import Player from '@/components/Player';
 import Sidebar from '@/components/Sidebar';
-import SupabaseProvider from '@/providers/SupabaseProvider';
 import UserProvider from '@/providers/UserProvider';
 import ModalProvider from '@/providers/ModalProvider';
-import type { Metadata } from 'next';
 import ToasterProvider from '@/providers/ToasterProvider';
 import getSongsByUserID from '@/actions/getSongsByUserID';
-import Player from '@/components/Player';
+import SupabaseProvider from '@/providers/SupabaseProvider';
+import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices';
 
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Audio Hub: The Reality Streamer',
+  title: 'The Audio Hub',
   description: 'Listen to awesome music from anywhere in the world!',
 };
 
@@ -26,6 +27,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const userSongs = await getSongsByUserID();
+  const products = await getActiveProductsWithPrices();
 
   return (
     <html lang="en">
@@ -33,7 +35,7 @@ export default async function RootLayout({
         <ToasterProvider />
         <SupabaseProvider>
           <UserProvider>
-            <ModalProvider />
+            <ModalProvider products={products} />
             <Sidebar songs={userSongs}>{children}</Sidebar>
             <Player />
           </UserProvider>
