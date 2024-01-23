@@ -39,9 +39,9 @@ const Sidebar: React.FC<SidebarProps> = ({ children, songs }) => {
       },
       {
         icon: BiUserCircle,
-        label: 'Profile',
-        active: pathname === '/profile',
-        href: '/profile',
+        label: 'Account',
+        active: pathname === '/account',
+        href: '/account',
       },
     ],
     [pathname]
