@@ -36,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
     if (error) {
       toast.error(error.message);
     } else {
-      toast.success('LOGGED OUT!');
+      toast.success('You have logged out');
     }
   };
 
@@ -78,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ children, className }) => {
               </Button>
               <Button
                 onClick={() => router.push('/account')}
-                className="bg-white"
+                className="bg-white px-2"
               >
                 <FaUserAlt />
               </Button>
