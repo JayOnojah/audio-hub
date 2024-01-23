@@ -14,8 +14,8 @@ import Player from '@/components/Player';
 const font = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Audio Hub',
-  description: 'Listen to awesome music!',
+  title: 'Audio Hub: The Reality Streamer',
+  description: 'Listen to awesome music from anywhere in the world!',
 };
 
 export const revalidate = 0;
