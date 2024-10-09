@@ -1,10 +1,10 @@
-import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
-import { cookies } from 'next/headers';
-import { NextResponse } from 'next/server';
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
-import { stripe } from '@/libs/stripe';
-import { getURL } from '@/libs/helpers';
-import { createOrRetrieveCustomer } from '@/libs/supabaseAdmin';
+import { stripe } from "@/libs/stripe";
+import { getURL } from "@/libs/helpers";
+import { createOrRetrieveCustomer } from "@/libs/supabaseAdmin";
 
 export async function POST() {
   try {
@@ -16,14 +16,14 @@ export async function POST() {
       data: { user },
     } = await supabase.auth.getUser();
 
-    if (!user) throw new Error('Could not get user');
+    if (!user) throw new Error("Could not get user");
 
     const customer = await createOrRetrieveCustomer({
-      uuid: user.id || '',
-      email: user.email || '',
+      uuid: user.id || "",
+      email: user.email || "",
     });
 
-    if (!customer) throw new Error('Could not get customer');
+    if (!customer) throw new Error("Could not get customer");
 
     const { url } = await stripe.billingPortal.sessions.create({
       customer,

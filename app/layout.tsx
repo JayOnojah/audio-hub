@@ -1,22 +1,22 @@
-import './globals.css';
+import "./globals.css";
 
-import { Inter } from 'next/font/google';
+import { Inter } from "next/font/google";
 
-import type { Metadata } from 'next';
-import Player from '@/components/Player';
-import Sidebar from '@/components/Sidebar';
-import UserProvider from '@/providers/UserProvider';
-import ModalProvider from '@/providers/ModalProvider';
-import ToasterProvider from '@/providers/ToasterProvider';
-import getSongsByUserID from '@/actions/getSongsByUserID';
-import SupabaseProvider from '@/providers/SupabaseProvider';
-import getActiveProductsWithPrices from '@/actions/getActiveProductsWithPrices';
+import type { Metadata } from "next";
+import Player from "@/components/Player";
+import Sidebar from "@/components/Sidebar";
+import UserProvider from "@/providers/UserProvider";
+import ModalProvider from "@/providers/ModalProvider";
+import ToasterProvider from "@/providers/ToasterProvider";
+import getSongsByUserID from "@/actions/getSongsByUserID";
+import SupabaseProvider from "@/providers/SupabaseProvider";
+import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
 
-const font = Inter({ subsets: ['latin'] });
+const font = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'The Audio Hub',
-  description: 'Listen to awesome music from anywhere in the world!',
+  title: "The Audio Hub",
+  description: "Listen to awesome music from anywhere in the world!",
 };
 
 export const revalidate = 0;
