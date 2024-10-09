@@ -1,4 +1,4 @@
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from "tailwind-merge";
 
 interface BoxProps {
   children: React.ReactNode;
@@ -16,8 +16,7 @@ const Box: React.FC<BoxProps> = ({ children, className }) => {
           w-full
         `,
         className
-      )}
-    >
+      )}>
       {children}
     </div>
   );
