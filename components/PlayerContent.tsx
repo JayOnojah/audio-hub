@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { Song } from '@/types';
-import { BsPauseFill, BsPlayFill } from 'react-icons/bs';
-import { AiFillStepBackward, AiFillStepForward } from 'react-icons/ai';
-import { HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2';
-import { useEffect, useState } from 'react';
+import { Song } from "@/types";
+import { BsPauseFill, BsPlayFill } from "react-icons/bs";
+import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai";
+import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
+import { useEffect, useState } from "react";
 //@ts-ignore
-import useSound from 'use-sound';
+import useSound from "use-sound";
 
-import usePlayer from '@/hooks/usePlayer';
-import MediaItem from './MediaItem';
-import LikeButton from './LikeButton';
-import Slider from './Slider';
+import usePlayer from "@/hooks/usePlayer";
+import MediaItem from "./MediaItem";
+import LikeButton from "./LikeButton";
+import Slider from "./Slider";
 
 interface PlayerContentProps {
   song: Song;
@@ -57,7 +57,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
   };
 
   const [play, { pause, sound }] = useSound(songUrl, {
-    format: ['mp3'],
+    format: ["mp3"],
     volume: volume,
     onplay: () => setIsPlaying(true),
     onpause: () => setIsPlaying(false),
@@ -103,8 +103,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
       <div className="flex md:hidden col-auto w-full justify-end items-center">
         <div
           onClick={handlePlay}
-          className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer"
-        >
+          className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer">
           <Icon size={30} className="text-black" />
         </div>
       </div>
@@ -117,8 +116,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({ song, songUrl }) => {
         />
         <div
           onClick={handlePlay}
-          className="flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer"
-        >
+          className="flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer">
           <Icon size={30} className="text-black" />
         </div>
         <AiFillStepForward
