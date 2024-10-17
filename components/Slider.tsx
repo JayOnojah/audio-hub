@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import * as RadixSlider from '@radix-ui/react-slider';
+import * as RadixSlider from "@radix-ui/react-slider";
 
 interface SliderProps {
   value?: number;
@@ -20,8 +20,7 @@ const Slider: React.FC<SliderProps> = ({ value = 1, onChange }) => {
       onValueChange={handleChange}
       max={1}
       step={0.1}
-      arial-label="Volume"
-    >
+      arial-label="Volume">
       <RadixSlider.Track className="bg-neutral-600 relative grow rounded-full h-[3px]">
         <RadixSlider.Range className="absolute bg-white rounded-full h-full"></RadixSlider.Range>
       </RadixSlider.Track>
