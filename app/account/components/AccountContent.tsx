@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { toast } from 'react-hot-toast';
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 
-import { useUser } from '@/hooks/useUser';
-import { postData } from '@/libs/helpers';
-import Button from '@/components/Button';
-import useSubscribeModal from '@/hooks/useSubscribeModal';
+import { useUser } from "@/hooks/useUser";
+import { postData } from "@/libs/helpers";
+import Button from "@/components/Button";
+import useSubscribeModal from "@/hooks/useSubscribeModal";
 
 const AccountContent = () => {
   const router = useRouter();
@@ -18,7 +18,7 @@ const AccountContent = () => {
 
   useEffect(() => {
     if (!isLoading && !user) {
-      router.replace('/');
+      router.replace("/");
     }
   }, [isLoading, user, router]);
 
@@ -27,7 +27,7 @@ const AccountContent = () => {
 
     try {
       const { url, error } = await postData({
-        url: '/api/create-portal-link',
+        url: "/api/create-portal-link",
       });
       window.location.assign(url);
     } catch (error) {
@@ -52,14 +52,13 @@ const AccountContent = () => {
       {subscription && (
         <div className="flex flex-col gap-y-4">
           <p>
-            You are currently on the{' '}
+            You are currently on the{" "}
             <b>{subscription?.prices?.products?.name}</b> Plan.
           </p>
           <Button
             disabled={loading || isLoading}
             onClick={redirectToCustomerPortal}
-            className="w-[300px]"
-          >
+            className="w-[300px]">
             Open Customer Portal
           </Button>
         </div>
