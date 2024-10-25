@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['react-daisyui'],
+  transpilePackages: ["react-daisyui"],
   images: {
-    domains: [
-      "ajpmxkgkzqnbodwedvbx.supabase.co"
-    ]
-  }
-}
+    domains: ["ajpmxkgkzqnbodwedvbx.supabase.co"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
